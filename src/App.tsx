@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { GlobalStyle } from 'appConstant/global';
-import { Header } from 'common/Header/Header';
+import { InitualPage } from 'pages/InitialPage/InitialPage';
 
 function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Header />
+      <InitualPage />
     </React.Fragment>
   );
 }
