@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { MAIN_COLOR, WHITE } from 'appConstant/constants';
+
 import logo from '../../assets/icon/logo.svg';
 import search from '../../assets/icon/search.svg';
 
@@ -29,4 +30,5 @@ export const InputSearch = styled.input`
   height: 40px;
   max-width: 500px;
   width: 100%;
+  border-radius: 5px;
 `;

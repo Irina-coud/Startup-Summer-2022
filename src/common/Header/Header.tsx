@@ -5,7 +5,7 @@ export function Header() {
     <HeaderStyled>
       <HeaderContainer>
         <Logo />
-        <InputSearch type="search"></InputSearch>
+        <InputSearch type="search" placeholder="Enter GitHub username"></InputSearch>
       </HeaderContainer>
     </HeaderStyled>
   );
