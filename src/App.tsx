@@ -4,6 +4,8 @@ import { GlobalStyle } from 'appConstant/global';
 import { Header } from 'components/Header/Header';
 import { InitualPage } from 'components/InitialPage/Initial';
 import { UserNotRepositories } from 'components/UserNotRepositoriesPage/UserNotRepositories';
+import { User } from 'components/UserPage/User';
+import { UserNotFoundPage } from 'components/UserNotFoundPage/UserNotFound';
 
 export function App() {
   return (
@@ -13,6 +15,7 @@ export function App() {
       {/* <InitualPage /> */}
       {/* <UserNotFoundPage /> */}
       <UserNotRepositories />
+      {/* <User /> */}
     </React.Fragment>
   );
 }
