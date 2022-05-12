@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import userNotFound from '../../assets/icon/userNotFound.svg';
 
 export const UserNotFoundPageStyled = styled.div`
-  background-color: ${MAIN_BG_COLOR};
   height: calc(100vh - 72px);
 `;
 export const UserNotFoundPageContainer = styled.div`

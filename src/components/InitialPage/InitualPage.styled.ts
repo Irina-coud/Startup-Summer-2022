@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import search from '../../assets/icon/search.svg';
 
 export const InitualPageStyled = styled.div`
-  background-color: ${MAIN_BG_COLOR};
   height: calc(100vh - 72px);
 `;
 export const InitualPageContainer = styled.div`

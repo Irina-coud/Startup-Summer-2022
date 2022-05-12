@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import { MAIN_BG_COLOR } from './constants';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -41,6 +42,7 @@ body {
   font-size: 14px;
   line-height: 1;
   height: 100%;
+  background-color: ${MAIN_BG_COLOR};
 }
 input[type="text"],
 input[type="search"], input[type="email"],
