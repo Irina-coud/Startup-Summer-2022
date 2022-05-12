@@ -44,6 +44,8 @@ export const UserNikname = styled.a`
 `;
 export const InfoBox = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 export const UserFollowers = styled.p`
   font-size: 16px;
@@ -70,6 +72,10 @@ export const EmptyIcon = styled.div`
   background: url(${empty}) no-repeat;
   height: 62px;
   width: 76px;
+`;
+export const IconFollower = styled.img`
+  width: 24px;
+  height: 24px;
 `;
 export const TextMessage = styled.p`
   color: ${GREY};

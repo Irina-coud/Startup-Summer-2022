@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   EmptyIcon,
+  IconFollower,
   InfoBox,
   RepositoriesBox,
   TextMessage,
@@ -15,6 +16,8 @@ import {
   UserPhotoBox,
   Wrapper,
 } from './UserNotRepositories.styled';
+import users from 'assets/icon/users.svg';
+import user from 'assets/icon/user.svg';
 
 export function UserNotRepositories() {
   return (
@@ -29,7 +32,9 @@ export function UserNotRepositories() {
             <UserNikname>gaearon</UserNikname>
           </UserDetails>
           <InfoBox>
+            <IconFollower src={users} />
             <UserFollowers>65.8k followers</UserFollowers>
+            <IconFollower src={user} />
             <UserFollowing>171 following</UserFollowing>
           </InfoBox>
         </UserBox>
