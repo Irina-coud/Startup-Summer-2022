@@ -1,5 +1,6 @@
-import { GREY, MAIN_BG_COLOR } from 'appConstant/constants';
 import styled from 'styled-components';
+
+import { GREY } from 'appConstant/constants';
 
 import search from '../../assets/icon/search.svg';
 

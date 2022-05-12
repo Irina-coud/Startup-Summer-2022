@@ -3,7 +3,7 @@ import {
   UserNotFoundPageContainer,
   UserNotFoundPageStyled,
   UserNotFoundPageText,
-} from './UserNotFoundPage.styled';
+} from './UserNotFound.styled';
 
 export function UserNotFoundPage() {
   return (

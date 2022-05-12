@@ -14,7 +14,7 @@ import {
   UserPhoto,
   UserPhotoBox,
   Wrapper,
-} from './UserNotRepositoriesPage.styled';
+} from './UserNotRepositories.styled';
 
 export function UserNotRepositories() {
   return (

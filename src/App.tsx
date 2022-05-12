@@ -1,16 +1,11 @@
-import { GlobalStyle } from 'appConstant/global';
-import { Header } from 'components/Header/Header';
-import { InitualPage } from 'components/InitialPage/InitialPage';
-import { UserNotRepositories } from 'components/UserNotRepositoriesPage/UserNotRepositoriesPage';
 import React from 'react';
 
-// import { GlobalStyle } from 'appConstant/global';
-// import { InitualPage } from 'pages/InitialPage/InitialPage';
-// import { UserNotFoundPage } from 'pages/UserNotFoundPage/UserNotFoundPage';
-// import { UserNotRepositories } from 'pages/UserNotRepositories/UserNotRepositories';
-// import { Header } from 'common/Header/Header';
+import { GlobalStyle } from 'appConstant/global';
+import { Header } from 'components/Header/Header';
+import { InitualPage } from 'components/InitialPage/Initial';
+import { UserNotRepositories } from 'components/UserNotRepositoriesPage/UserNotRepositories';
 
-function App() {
+export function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -21,5 +16,3 @@ function App() {
     </React.Fragment>
   );
 }
-
-export default App;

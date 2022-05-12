@@ -3,7 +3,7 @@ import {
   InitualPageStyled,
   InitualPageText,
   SearchIcon,
-} from './InitualPage.styled';
+} from './Initual.styled';
 
 export function InitualPage() {
   return (
