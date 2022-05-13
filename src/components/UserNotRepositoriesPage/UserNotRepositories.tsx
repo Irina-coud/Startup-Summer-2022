@@ -1,11 +1,10 @@
 import React from 'react';
 
+import users from 'assets/icon/users.svg';
+import user from 'assets/icon/user.svg';
 import {
-  EmptyIcon,
   IconFollower,
   InfoBox,
-  RepositoriesBox,
-  TextMessage,
   UserBox,
   UserDetails,
   UserFollowers,
@@ -14,15 +13,14 @@ import {
   UserNikname,
   UserPhoto,
   UserPhotoBox,
-  Wrapper,
-} from './UserNotRepositories.styled';
-import users from 'assets/icon/users.svg';
-import user from 'assets/icon/user.svg';
+  UserWrapper,
+} from 'styled/global';
+import { EmptyIcon, RepositoriesBox, TextMessage } from './UserNotRepositories.styled';
 
 export function UserNotRepositories() {
   return (
     <React.Fragment>
-      <Wrapper>
+      <UserWrapper>
         <UserBox>
           <UserPhotoBox>
             <UserPhoto />
@@ -42,7 +40,7 @@ export function UserNotRepositories() {
           <EmptyIcon />
           <TextMessage>Repository list is empty</TextMessage>
         </RepositoriesBox>
-      </Wrapper>
+      </UserWrapper>
     </React.Fragment>
   );
 }

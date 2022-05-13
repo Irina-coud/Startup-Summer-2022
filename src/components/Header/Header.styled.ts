@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { MAIN_COLOR, WHITE } from 'appConstant/constants';
-
 import search from '../../assets/icon/search.svg';
 
 export const HeaderStyled = styled.header`

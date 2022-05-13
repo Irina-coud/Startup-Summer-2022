@@ -1,14 +1,10 @@
 import React from 'react';
 
+import users from 'assets/icon/users.svg';
+import user from 'assets/icon/user.svg';
 import {
-  CountRepositories,
-  DescriptionRepository,
   IconFollower,
   InfoBox,
-  ItemRepositories,
-  ListRepositories,
-  NameRepository,
-  RepositoriesBox,
   UserBox,
   UserDetails,
   UserFollowers,
@@ -17,15 +13,21 @@ import {
   UserNikname,
   UserPhoto,
   UserPhotoBox,
-  Wrapper,
+  UserWrapper,
+} from 'styled/global';
+import {
+  CountRepositories,
+  DescriptionRepository,
+  ItemRepositories,
+  ListRepositories,
+  NameRepository,
+  RepositoriesBox,
 } from './User.styled';
-import users from 'assets/icon/users.svg';
-import user from 'assets/icon/user.svg';
 
 export function User() {
   return (
     <React.Fragment>
-      <Wrapper>
+      <UserWrapper>
         <UserBox>
           <UserPhotoBox>
             <UserPhoto />
@@ -74,7 +76,7 @@ export function User() {
             </ItemRepositories>
           </ListRepositories>
         </RepositoriesBox>
-      </Wrapper>
+      </UserWrapper>
     </React.Fragment>
   );
 }

@@ -1,17 +1,13 @@
-import {
-  InitualPageContainer,
-  InitualPageStyled,
-  InitualPageText,
-  SearchIcon,
-} from './Initual.styled';
+import { Container, TextMessage, Wrapper } from 'styled/global';
+import { Icon } from './Initual.styled';
 
 export function InitualPage() {
   return (
-    <InitualPageStyled>
-      <InitualPageContainer>
-        <SearchIcon />
-        <InitualPageText>Start with searching a GitHub user</InitualPageText>
-      </InitualPageContainer>
-    </InitualPageStyled>
+    <Wrapper>
+      <Container>
+        <Icon />
+        <TextMessage>Start with searching a GitHub user</TextMessage>
+      </Container>
+    </Wrapper>
   );
 }
