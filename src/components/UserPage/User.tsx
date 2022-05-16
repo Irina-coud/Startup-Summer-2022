@@ -28,6 +28,7 @@ export function User() {
   const { name, userName, avatar, followers, following } = useAppSelector(
     (store) => store.reducer.userInfo
   );
+  const { repInfo } = useAppSelector((store) => store.reducer);
 
   return (
     <React.Fragment>
@@ -52,36 +53,14 @@ export function User() {
           </InfoBox>
         </UserBox>
         <RepositoriesBox>
-          <CountRepositories>Repositories (249)</CountRepositories>
+          <CountRepositories>Repositories ({repInfo.length})</CountRepositories>
           <ListRepositories>
-            <ItemRepositories>
-              <NameRepository>whatthefuck.is</NameRepository>
-              <DescriptionRepository>
-                An opinionated glossary of computer science terms for front-end developers. Written
-                by Dan Abramov.
-              </DescriptionRepository>
-            </ItemRepositories>
-            <ItemRepositories>
-              <NameRepository>whatthefuck.is</NameRepository>
-              <DescriptionRepository>
-                An opinionated glossary of computer science terms for front-end developers. Written
-                by Dan Abramov.
-              </DescriptionRepository>
-            </ItemRepositories>
-            <ItemRepositories>
-              <NameRepository>whatthefuck.is</NameRepository>
-              <DescriptionRepository>
-                An opinionated glossary of computer science terms for front-end developers. Written
-                by Dan Abramov.
-              </DescriptionRepository>
-            </ItemRepositories>
-            <ItemRepositories>
-              <NameRepository>whatthefuck.is</NameRepository>
-              <DescriptionRepository>
-                An opinionated glossary of computer science terms for front-end developers. Written
-                by Dan Abramov.
-              </DescriptionRepository>
-            </ItemRepositories>
+            {repInfo.map((rep) => (
+              <ItemRepositories key={rep.id}>
+                <NameRepository>{rep.name}</NameRepository>
+                <DescriptionRepository>{rep.description}</DescriptionRepository>
+              </ItemRepositories>
+            ))}
           </ListRepositories>
         </RepositoriesBox>
       </UserWrapper>

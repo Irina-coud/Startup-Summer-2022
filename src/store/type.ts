@@ -1,9 +1,11 @@
+import { IResInfoRep } from 'service/type';
 import rootReducer from 'store';
 import { store } from './store';
 
 export interface IdefaultState {
   userNameSearch: string;
   userInfo: IuserInfo;
+  repInfo: IResInfoRep[];
 }
 
 export interface IuserInfo {

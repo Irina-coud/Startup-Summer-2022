@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { HeaderContainer, HeaderStyled, InputSearch, Logo } from './Header.styled';
 import logo from '../../assets/icon/logo.svg';
 import { useAppSelector } from 'store/hooks';
-import { updateSearchValue, updateUserInfo } from 'store/mainSlice';
+import { updateRepInfo, updateSearchValue, updateUserInfo } from 'store/mainSlice';
 import { service } from 'service/Service';
 
 export function Header() {
@@ -19,6 +19,8 @@ export function Header() {
     if (event.key === 'Enter') {
       const res = await service.getUser(userNameSearch);
       dispatch(updateUserInfo(res));
+      const repo = await service.getRepo(userNameSearch);
+      dispatch(updateRepInfo(repo));
     }
   };
 

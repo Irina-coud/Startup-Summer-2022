@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { IResInfoRep } from 'service/type';
 import { IdefaultState, IuserInfo } from './type';
 
 export const defaultState: IdefaultState = {
@@ -11,6 +12,7 @@ export const defaultState: IdefaultState = {
     followers: 0,
     following: 0,
   },
+  repInfo: [],
 };
 
 const mainSlice = createSlice({
@@ -23,10 +25,13 @@ const mainSlice = createSlice({
     updateUserInfo: (state: IdefaultState, { payload }: { payload: IuserInfo }) => {
       state.userInfo = payload;
     },
+    updateRepInfo: (state: IdefaultState, { payload }: { payload: IResInfoRep[] }) => {
+      state.repInfo = payload;
+    },
   },
 });
 
 const { actions, reducer } = mainSlice;
 
 export default reducer;
-export const { updateSearchValue, updateUserInfo } = actions;
+export const { updateSearchValue, updateUserInfo, updateRepInfo } = actions;
