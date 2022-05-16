@@ -7,8 +7,7 @@ import {
   InfoBox,
   UserBox,
   UserDetails,
-  UserFollowers,
-  UserFollowing,
+  UserFollow,
   UserName,
   UserNikname,
   UserPhoto,
@@ -23,24 +22,33 @@ import {
   NameRepository,
   RepositoriesBox,
 } from './User.styled';
+import { useAppSelector } from 'store/hooks';
 
 export function User() {
+  const { name, userName, avatar, followers, following } = useAppSelector(
+    (store) => store.reducer.userInfo
+  );
+
   return (
     <React.Fragment>
       <UserWrapper>
         <UserBox>
           <UserPhotoBox>
-            <UserPhoto />
+            <UserPhoto src={avatar} />
           </UserPhotoBox>
           <UserDetails>
-            <UserName>Dan Abramov</UserName>
-            <UserNikname>gaearon</UserNikname>
+            <UserName>{name}</UserName>
+            <UserNikname>{userName}</UserNikname>
           </UserDetails>
           <InfoBox>
-            <IconFollower src={users} />
-            <UserFollowers>65.8k followers</UserFollowers>
-            <IconFollower src={user} />
-            <UserFollowing>171 following</UserFollowing>
+            <UserFollow>
+              <IconFollower src={users} />
+              {followers} followers
+            </UserFollow>
+            <UserFollow>
+              <IconFollower src={user} />
+              {following} following
+            </UserFollow>
           </InfoBox>
         </UserBox>
         <RepositoriesBox>

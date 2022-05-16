@@ -64,11 +64,10 @@ export const InfoBox = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const UserFollowers = styled.p`
+export const UserFollow = styled.p`
   font-size: 16px;
-`;
-export const UserFollowing = styled.p`
-  font-size: 16px;
+  display: flex;
+  align-items: center;
 `;
 export const UserDetails = styled.div`
   display: flex;
