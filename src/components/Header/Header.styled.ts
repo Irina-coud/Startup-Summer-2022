@@ -8,6 +8,7 @@ export const HeaderStyled = styled.header`
   height: 72px;
   padding: 0 20px 0 40px;
 `;
+
 export const HeaderContainer = styled.div`
   height: 100%;
   display: flex;
@@ -17,10 +18,12 @@ export const HeaderContainer = styled.div`
   gap: 15px;
   justify-content: space-between;
 `;
+
 export const Logo = styled.img`
   height: 40px;
   width: 41px;
 `;
+
 export const InputSearch = styled.input`
   background: ${WHITE} url(${search}) 20px 50% / 14px 14px no-repeat;
   padding: 0 0 0 45px;

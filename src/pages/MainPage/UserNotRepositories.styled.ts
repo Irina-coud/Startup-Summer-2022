@@ -12,11 +12,13 @@ export const RepositoriesEmptyBox = styled.div`
   max-width: 820px;
   width: 100%;
 `;
+
 export const EmptyIcon = styled.div`
   background: url(${empty}) no-repeat;
   height: 62px;
   width: 76px;
 `;
+
 export const TextMessage = styled.p`
   color: ${GREY};
   font-size: 22px;
