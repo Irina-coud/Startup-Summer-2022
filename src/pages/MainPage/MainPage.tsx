@@ -36,6 +36,16 @@ export function MainPage() {
   );
   const { repInfo } = useAppSelector((store) => store.reducer);
 
+  function transform(value: number) {
+    const result =
+      value > 1000000
+        ? `${(followers / 1000000).toFixed(1)}m`
+        : value > 1000
+        ? `${(followers / 1000).toFixed(1)}k`
+        : value;
+    return result;
+  }
+
   return (
     <React.Fragment>
       <UserWrapper>
@@ -50,11 +60,11 @@ export function MainPage() {
           <InfoBox>
             <UserFollow>
               <IconFollower src={users} />
-              {followers} followers
+              {transform(followers)} followers
             </UserFollow>
             <UserFollow>
               <IconFollower src={user} />
-              {following} following
+              {transform(following)} following
             </UserFollow>
           </InfoBox>
         </UserBox>
