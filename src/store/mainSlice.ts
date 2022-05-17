@@ -14,6 +14,7 @@ export const defaultState: IdefaultState = {
     followers: 0,
     following: 0,
     public_repos: 0,
+    html_url: '',
   },
   repInfo: [],
   dataLoad: false,

@@ -19,6 +19,7 @@ export interface IuserInfo {
   followers: number;
   following: number;
   public_repos: number;
+  html_url: string;
 }
 
 export type RootState = ReturnType<typeof rootReducer>;

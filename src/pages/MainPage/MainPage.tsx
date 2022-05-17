@@ -31,7 +31,7 @@ import {
 import { Pagination } from 'components/Paginate/Paginate';
 
 export function MainPage() {
-  const { name, userName, avatar, followers, following, public_repos } = useAppSelector(
+  const { name, userName, avatar, followers, following, public_repos, html_url } = useAppSelector(
     (store) => store.reducer.userInfo
   );
   const { repInfo } = useAppSelector((store) => store.reducer);
@@ -55,7 +55,9 @@ export function MainPage() {
           </UserPhotoBox>
           <UserDetails>
             <UserName>{name}</UserName>
-            <UserNikname>{userName}</UserNikname>
+            <UserNikname href={html_url} target="_blank">
+              {userName}
+            </UserNikname>
           </UserDetails>
           <InfoBox>
             <UserFollow>
@@ -74,7 +76,9 @@ export function MainPage() {
             <ListRepositories>
               {repInfo.map((rep) => (
                 <ItemRepositories key={rep.id}>
-                  <NameRepository>{rep.name}</NameRepository>
+                  <NameRepository href={rep.html_url} target="_blank">
+                    {rep.name}
+                  </NameRepository>
                   <DescriptionRepository>{rep.description}</DescriptionRepository>
                 </ItemRepositories>
               ))}

@@ -5,10 +5,12 @@ export interface IResInfoUser {
   followers: number;
   following: number;
   public_repos: number;
+  html_url: string;
 }
 
 export interface IResInfoRep {
   name: string;
   description: string;
   id: number;
+  html_url: string;
 }

@@ -27,6 +27,7 @@ class Service {
       followers: data.followers,
       following: data.following,
       public_repos: data.public_repos,
+      html_url: data.html_url,
     };
   };
 
@@ -35,6 +36,7 @@ class Service {
       name: data.name,
       description: data.description,
       id: data.id,
+      html_url: data.html_url,
     };
   };
 }
