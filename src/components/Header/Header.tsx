@@ -1,14 +1,12 @@
 import { ChangeEvent } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { HeaderContainer, HeaderStyled, InputSearch, Logo } from './Header.styled';
 import logo from '../../assets/icon/logo.svg';
-import { useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { updateRepInfo, updateSearchValue, updateUserInfo } from 'store/mainSlice';
-import { service } from 'service/Service';
 
 export function Header() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { userNameSearch } = useAppSelector((store) => store.reducer);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,10 +15,8 @@ export function Header() {
 
   const hadleKeyDown = async (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      const res = await service.getUser(userNameSearch);
-      dispatch(updateUserInfo(res));
-      const repo = await service.getRepo(userNameSearch);
-      dispatch(updateRepInfo(repo));
+      dispatch(updateUserInfo(userNameSearch));
+      dispatch(updateRepInfo(userNameSearch));
     }
   };
 

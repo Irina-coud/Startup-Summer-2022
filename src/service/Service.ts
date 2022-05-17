@@ -14,8 +14,6 @@ class Service {
 
   getRepo = async (userNameSearch: string) => {
     const res = await this.axiosInstance.get(`${this.baseUrl}users/${userNameSearch}/repos`);
-    console.log(res.data);
-
     return res.data.map(this.transformRepo);
   };
 

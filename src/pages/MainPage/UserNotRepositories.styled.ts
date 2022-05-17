@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import empty from '../../assets/icon/empty.svg';
 import { GREY } from 'appConstant/constants';
 
-export const RepositoriesBox = styled.div`
+export const RepositoriesEmptyBox = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;

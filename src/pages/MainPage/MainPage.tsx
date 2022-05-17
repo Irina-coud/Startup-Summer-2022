@@ -14,13 +14,26 @@ import {
   UserPhotoBox,
   UserWrapper,
 } from 'styled/global';
-import { EmptyIcon, RepositoriesBox, TextMessage } from './UserNotRepositories.styled';
+import {
+  CountRepositories,
+  DescriptionRepository,
+  ItemRepositories,
+  ListRepositories,
+  NameRepository,
+  RepositoriesBox,
+} from './MainPage.styled';
 import { useAppSelector } from 'store/hooks';
+import {
+  EmptyIcon,
+  RepositoriesEmptyBox,
+  TextMessage,
+} from 'pages/MainPage/UserNotRepositories.styled';
 
-export function UserNotRepositories() {
+export function MainPage() {
   const { name, userName, avatar, followers, following } = useAppSelector(
     (store) => store.reducer.userInfo
   );
+  const { repInfo } = useAppSelector((store) => store.reducer);
 
   return (
     <React.Fragment>
@@ -44,10 +57,24 @@ export function UserNotRepositories() {
             </UserFollow>
           </InfoBox>
         </UserBox>
-        <RepositoriesBox>
-          <EmptyIcon />
-          <TextMessage>Repository list is empty</TextMessage>
-        </RepositoriesBox>
+        {repInfo.length > 0 ? (
+          <RepositoriesBox>
+            <CountRepositories>Repositories ({repInfo.length})</CountRepositories>
+            <ListRepositories>
+              {repInfo.map((rep) => (
+                <ItemRepositories key={rep.id}>
+                  <NameRepository>{rep.name}</NameRepository>
+                  <DescriptionRepository>{rep.description}</DescriptionRepository>
+                </ItemRepositories>
+              ))}
+            </ListRepositories>
+          </RepositoriesBox>
+        ) : (
+          <RepositoriesEmptyBox>
+            <EmptyIcon />
+            <TextMessage>Repository list is empty</TextMessage>
+          </RepositoriesEmptyBox>
+        )}
       </UserWrapper>
     </React.Fragment>
   );

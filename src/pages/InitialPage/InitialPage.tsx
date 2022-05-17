@@ -1,5 +1,5 @@
 import { Container, TextMessage, Wrapper } from 'styled/global';
-import { Icon } from './Initual.styled';
+import { Icon } from './InitualPage.styled';
 
 export function InitualPage() {
   return (

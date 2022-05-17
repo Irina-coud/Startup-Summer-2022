@@ -6,6 +6,8 @@ export interface IdefaultState {
   userNameSearch: string;
   userInfo: IuserInfo;
   repInfo: IResInfoRep[];
+  dataLoad: boolean;
+  errorUser: string | undefined;
 }
 
 export interface IuserInfo {

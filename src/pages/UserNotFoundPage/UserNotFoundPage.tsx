@@ -1,5 +1,5 @@
 import { Container, TextMessage, Wrapper } from 'styled/global';
-import { Icon } from './UserNotFound.styled';
+import { Icon } from './UserNotFoundPage.styled';
 
 export function UserNotFoundPage() {
   return (

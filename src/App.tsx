@@ -1,24 +1,20 @@
+import React from 'react';
+
 import { Header } from 'components/Header/Header';
-import { InitualPage } from 'components/InitialPage/Initial';
-import { UserNotRepositories } from 'components/UserNotRepositoriesPage/UserNotRepositories';
-import { User } from 'components/UserPage/User';
-import { UserNotFoundPage } from 'components/UserNotFoundPage/UserNotFound';
+import { InitualPage } from 'pages/InitialPage/InitialPage';
+import { MainPage } from 'pages/MainPage/MainPage';
 import { GlobalStyle } from 'styled/normalize';
-import { service } from 'service/Service';
-import { Provider } from 'react-redux';
-import { store } from 'store/store';
+import { useAppSelector } from 'store/hooks';
+import { UserNotFoundPage } from 'pages/UserNotFoundPage/UserNotFoundPage';
 
 export function App() {
+  const { dataLoad, errorUser } = useAppSelector((store) => store.reducer);
+
   return (
-    <Provider store={store}>
-      {/* <React.Fragment> */}
+    <React.Fragment>
       <GlobalStyle />
       <Header />
-      {/* <InitualPage /> */}
-      {/* <UserNotFoundPage /> */}
-      {/* <UserNotRepositories /> */}
-      <User />
-      {/* </React.Fragment> */}
-    </Provider>
+      {!dataLoad ? !errorUser ? <InitualPage /> : <UserNotFoundPage /> : <MainPage />}
+    </React.Fragment>
   );
 }
