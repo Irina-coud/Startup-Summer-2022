@@ -19,6 +19,7 @@ export const defaultState: IdefaultState = {
   dataLoad: false,
   errorUser: '',
   page: 1,
+  statusLoad: 'pending',
 };
 
 export const updateUserInfo = createAsyncThunk<IuserInfo, string, { rejectValue: string }>(
@@ -71,6 +72,11 @@ const mainSlice = createSlice({
         state.userInfo = payload;
         state.dataLoad = true;
         state.errorUser = '';
+        state.statusLoad = 'load';
+      })
+      .addCase(updateUserInfo.pending, (state: IdefaultState) => {
+        state.dataLoad = false;
+        state.statusLoad = 'pending';
       })
       .addCase(updateUserInfo.rejected, (state: IdefaultState, { payload }) => {
         state.errorUser = payload;
@@ -79,6 +85,7 @@ const mainSlice = createSlice({
       .addCase(updateRepInfo.fulfilled, (state: IdefaultState, { payload }) => {
         state.repInfo = payload;
         state.dataLoad = true;
+        state.statusLoad = 'load';
       });
   },
 });

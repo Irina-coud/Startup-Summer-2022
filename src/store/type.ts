@@ -9,6 +9,7 @@ export interface IdefaultState {
   dataLoad: boolean;
   errorUser: string | undefined;
   page: number;
+  statusLoad: string;
 }
 
 export interface IuserInfo {

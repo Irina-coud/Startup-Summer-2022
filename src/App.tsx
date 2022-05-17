@@ -6,15 +6,28 @@ import { MainPage } from 'pages/MainPage/MainPage';
 import { GlobalStyle } from 'styled/normalize';
 import { useAppSelector } from 'store/hooks';
 import { UserNotFoundPage } from 'pages/UserNotFoundPage/UserNotFoundPage';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export function App() {
-  const { dataLoad, errorUser } = useAppSelector((store) => store.reducer);
+  const { dataLoad, errorUser, statusLoad } = useAppSelector((store) => store.reducer);
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <Header />
-      {!dataLoad ? !errorUser ? <InitualPage /> : <UserNotFoundPage /> : <MainPage />}
+      {!dataLoad ? (
+        !errorUser ? (
+          statusLoad === 'pending' ? (
+            <Spinner />
+          ) : (
+            <InitualPage />
+          )
+        ) : (
+          <UserNotFoundPage />
+        )
+      ) : (
+        <MainPage />
+      )}
     </React.Fragment>
   );
 }
