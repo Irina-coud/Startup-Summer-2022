@@ -3,7 +3,8 @@ import { ChangeEvent } from 'react';
 import { HeaderContainer, HeaderStyled, InputSearch, Logo } from './Header.styled';
 import logo from '../../assets/icon/logo.svg';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { updateRepInfo, updateSearchValue, updateUserInfo } from 'store/mainSlice';
+import { updatePage, updateRepInfo, updateSearchValue, updateUserInfo } from 'store/mainSlice';
+import { DEFAULT } from 'appConstant/constants';
 
 export function Header() {
   const dispatch = useAppDispatch();
@@ -15,8 +16,9 @@ export function Header() {
 
   const hadleKeyDown = async (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
+      dispatch(updatePage(DEFAULT));
       dispatch(updateUserInfo(userNameSearch));
-      dispatch(updateRepInfo(userNameSearch));
+      dispatch(updateRepInfo({ userNameSearch, page: DEFAULT }));
     }
   };
 

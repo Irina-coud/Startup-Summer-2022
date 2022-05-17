@@ -45,6 +45,7 @@ export const NameRepository = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 2;
 `;
 
 export const DescriptionRepository = styled.p`

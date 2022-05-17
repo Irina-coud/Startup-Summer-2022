@@ -8,6 +8,7 @@ export interface IdefaultState {
   repInfo: IResInfoRep[];
   dataLoad: boolean;
   errorUser: string | undefined;
+  page: number;
 }
 
 export interface IuserInfo {
@@ -16,6 +17,7 @@ export interface IuserInfo {
   userName: string;
   followers: number;
   following: number;
+  public_repos: number;
 }
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -13,10 +13,12 @@ export const defaultState: IdefaultState = {
     userName: '',
     followers: 0,
     following: 0,
+    public_repos: 0,
   },
   repInfo: [],
   dataLoad: false,
   errorUser: '',
+  page: 1,
 };
 
 export const updateUserInfo = createAsyncThunk<IuserInfo, string, { rejectValue: string }>(
@@ -35,21 +37,22 @@ export const updateUserInfo = createAsyncThunk<IuserInfo, string, { rejectValue:
   }
 );
 
-export const updateRepInfo = createAsyncThunk<IResInfoRep[], string, { rejectValue: string }>(
-  'main/repo',
-  async (userNameSearch: string, { rejectWithValue }) => {
-    try {
-      const data = await service.getRepo(userNameSearch);
-      return data;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        return rejectWithValue(error?.response?.data.message);
-      } else {
-        return rejectWithValue('Something went wrong...');
-      }
+export const updateRepInfo = createAsyncThunk<
+  IResInfoRep[],
+  { userNameSearch: string; page: number },
+  { rejectValue: string }
+>('main/repo', async (data, { rejectWithValue }) => {
+  try {
+    const res = await service.getRepo(data.userNameSearch, data.page);
+    return res;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return rejectWithValue(error?.response?.data.message);
+    } else {
+      return rejectWithValue('Something went wrong...');
     }
   }
-);
+});
 
 const mainSlice = createSlice({
   name: 'main',
@@ -57,6 +60,9 @@ const mainSlice = createSlice({
   reducers: {
     updateSearchValue: (state: IdefaultState, { payload }: { payload: string }) => {
       state.userNameSearch = payload;
+    },
+    updatePage(state: IdefaultState, { payload }: { payload: number }) {
+      state.page = payload;
     },
   },
   extraReducers: (builder) => {
@@ -80,4 +86,4 @@ const mainSlice = createSlice({
 const { actions, reducer } = mainSlice;
 
 export default reducer;
-export const { updateSearchValue } = actions;
+export const { updateSearchValue, updatePage } = actions;

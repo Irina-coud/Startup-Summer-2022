@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SERVER_URI } from 'appConstant/constants';
+import { PER_PAGE, SERVER_URI } from 'appConstant/constants';
 import { IResInfoRep, IResInfoUser } from './type';
 
 class Service {
@@ -12,8 +12,10 @@ class Service {
     return this.transformData(res.data);
   };
 
-  getRepo = async (userNameSearch: string) => {
-    const res = await this.axiosInstance.get(`${this.baseUrl}users/${userNameSearch}/repos`);
+  getRepo = async (userNameSearch: string, page: number) => {
+    const res = await this.axiosInstance.get(
+      `${this.baseUrl}users/${userNameSearch}/repos?q=&per_page=${PER_PAGE}&page=${page}`
+    );
     return res.data.map(this.transformRepo);
   };
 
@@ -24,6 +26,7 @@ class Service {
       userName: data.login,
       followers: data.followers,
       following: data.following,
+      public_repos: data.public_repos,
     };
   };
 

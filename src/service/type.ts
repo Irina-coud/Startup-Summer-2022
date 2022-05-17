@@ -4,6 +4,7 @@ export interface IResInfoUser {
   login: string;
   followers: number;
   following: number;
+  public_repos: number;
 }
 
 export interface IResInfoRep {

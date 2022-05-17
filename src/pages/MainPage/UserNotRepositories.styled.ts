@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import empty from '../../assets/icon/empty.svg';
+import empty from 'assets/icon/empty.svg';
 import { GREY } from 'appConstant/constants';
 
 export const RepositoriesEmptyBox = styled.div`

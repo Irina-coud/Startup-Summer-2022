@@ -28,9 +28,10 @@ import {
   RepositoriesEmptyBox,
   TextMessage,
 } from 'pages/MainPage/UserNotRepositories.styled';
+import { Pagination } from 'components/Paginate/Paginate';
 
 export function MainPage() {
-  const { name, userName, avatar, followers, following } = useAppSelector(
+  const { name, userName, avatar, followers, following, public_repos } = useAppSelector(
     (store) => store.reducer.userInfo
   );
   const { repInfo } = useAppSelector((store) => store.reducer);
@@ -59,7 +60,7 @@ export function MainPage() {
         </UserBox>
         {repInfo.length > 0 ? (
           <RepositoriesBox>
-            <CountRepositories>Repositories ({repInfo.length})</CountRepositories>
+            <CountRepositories>Repositories ({public_repos})</CountRepositories>
             <ListRepositories>
               {repInfo.map((rep) => (
                 <ItemRepositories key={rep.id}>
@@ -68,6 +69,7 @@ export function MainPage() {
                 </ItemRepositories>
               ))}
             </ListRepositories>
+            <Pagination />
           </RepositoriesBox>
         ) : (
           <RepositoriesEmptyBox>
