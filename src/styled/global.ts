@@ -29,7 +29,7 @@ export const UserWrapper = styled.div`
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  @media (max-width: 1220px) {
+  @media (max-width: 1280px) {
     justify-content: center;
     height: 100%;
     gap: 50px;
@@ -60,7 +60,7 @@ export const UserName = styled.p`
   font-size: 26px;
 `;
 
-export const UserNikname = styled.a`
+export const UserNickname = styled.a`
   font-size: 18px;
   color: ${MAIN_COLOR};
   cursor: pointer;

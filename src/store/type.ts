@@ -2,9 +2,9 @@ import { IResInfoRep } from 'service/type';
 import rootReducer from 'store';
 import { store } from './store';
 
-export interface IdefaultState {
+export interface IDefaultState {
   userNameSearch: string;
-  userInfo: IuserInfo;
+  userInfo: IUserInfo;
   repInfo: IResInfoRep[];
   dataLoad: boolean;
   errorUser: string | undefined;
@@ -12,7 +12,7 @@ export interface IdefaultState {
   statusLoad: string;
 }
 
-export interface IuserInfo {
+export interface IUserInfo {
   avatar: string;
   name: string;
   userName: string;

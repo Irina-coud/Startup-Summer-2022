@@ -1,7 +1,7 @@
 import { Container, TextMessage, Wrapper } from 'styled/global';
-import { Icon } from './InitualPage.styled';
+import { Icon } from './InitialPage.styled';
 
-export function InitualPage() {
+export function InitialPage() {
   return (
     <Wrapper>
       <Container>

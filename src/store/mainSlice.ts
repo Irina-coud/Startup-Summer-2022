@@ -3,9 +3,9 @@ import { AxiosError } from 'axios';
 
 import { service } from 'service/Service';
 import { IResInfoRep } from 'service/type';
-import { IdefaultState, IuserInfo } from './type';
+import { IDefaultState, IUserInfo } from './type';
 
-export const defaultState: IdefaultState = {
+export const defaultState: IDefaultState = {
   userNameSearch: '',
   userInfo: {
     avatar: '',
@@ -20,10 +20,10 @@ export const defaultState: IdefaultState = {
   dataLoad: false,
   errorUser: '',
   page: 1,
-  statusLoad: 'pending',
+  statusLoad: 'init',
 };
 
-export const updateUserInfo = createAsyncThunk<IuserInfo, string, { rejectValue: string }>(
+export const updateUserInfo = createAsyncThunk<IUserInfo, string, { rejectValue: string }>(
   'main/user',
   async (userNameSearch: string, { rejectWithValue }) => {
     try {
@@ -60,30 +60,30 @@ const mainSlice = createSlice({
   name: 'main',
   initialState: defaultState,
   reducers: {
-    updateSearchValue: (state: IdefaultState, { payload }: { payload: string }) => {
+    updateSearchValue: (state: IDefaultState, { payload }: { payload: string }) => {
       state.userNameSearch = payload;
     },
-    updatePage(state: IdefaultState, { payload }: { payload: number }) {
+    updatePage(state: IDefaultState, { payload }: { payload: number }) {
       state.page = payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(updateUserInfo.fulfilled, (state: IdefaultState, { payload }) => {
+      .addCase(updateUserInfo.pending, (state: IDefaultState) => {
+        state.dataLoad = false;
+        state.statusLoad = 'pending';
+      })
+      .addCase(updateUserInfo.fulfilled, (state: IDefaultState, { payload }) => {
         state.userInfo = payload;
         state.dataLoad = true;
         state.errorUser = '';
         state.statusLoad = 'load';
       })
-      .addCase(updateUserInfo.pending, (state: IdefaultState) => {
-        state.dataLoad = false;
-        state.statusLoad = 'pending';
-      })
-      .addCase(updateUserInfo.rejected, (state: IdefaultState, { payload }) => {
+      .addCase(updateUserInfo.rejected, (state: IDefaultState, { payload }) => {
         state.errorUser = payload;
         state.dataLoad = false;
       })
-      .addCase(updateRepInfo.fulfilled, (state: IdefaultState, { payload }) => {
+      .addCase(updateRepInfo.fulfilled, (state: IDefaultState, { payload }) => {
         state.repInfo = payload;
         state.dataLoad = true;
         state.statusLoad = 'load';

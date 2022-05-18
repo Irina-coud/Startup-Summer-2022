@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import userNotFound from '../../assets/icon/userNotFound.svg';
+import userNotFound from 'assets/icon/userNotFound.svg';
 
 export const Icon = styled.div`
   background: url(${userNotFound}) no-repeat;

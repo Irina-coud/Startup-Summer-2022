@@ -14,7 +14,7 @@ export function Header() {
     dispatch(updateSearchValue(event.target.value));
   };
 
-  const hadleKeyDown = async (event: React.KeyboardEvent) => {
+  const handleKeyDown = async (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       dispatch(updatePage(DEFAULT));
       dispatch(updateUserInfo(userNameSearch));
@@ -30,7 +30,7 @@ export function Header() {
           type="search"
           value={userNameSearch}
           placeholder="Enter GitHub username"
-          onKeyUp={hadleKeyDown}
+          onKeyUp={handleKeyDown}
           onChange={handleChange}
         ></InputSearch>
       </HeaderContainer>

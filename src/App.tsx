@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from 'components/Header/Header';
-import { InitualPage } from 'pages/InitialPage/InitialPage';
+import { InitialPage } from 'pages/InitialPage/InitialPage';
 import { MainPage } from 'pages/MainPage/MainPage';
 import { GlobalStyle } from 'styled/normalize';
 import { useAppSelector } from 'store/hooks';
@@ -20,7 +20,7 @@ export function App() {
           statusLoad === 'pending' ? (
             <Spinner />
           ) : (
-            <InitualPage />
+            <InitialPage />
           )
         ) : (
           <UserNotFoundPage />

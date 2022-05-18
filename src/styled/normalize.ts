@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-
 import normalize from 'styled-normalize';
+
 import { MAIN_BG_COLOR } from 'appConstant/constants';
 
 export const GlobalStyle = createGlobalStyle`
